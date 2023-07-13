@@ -21,3 +21,7 @@ type `npm start` to start the dev server
   to run webpack commands from the terminal
 - [webpack-dev-server](https://www.npmjs.com/package/webpack-dev-server)
   to run the dev server
+
+### future scope -
+
+https://github.com/felipeccastro/html-component
