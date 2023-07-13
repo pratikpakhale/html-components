@@ -1,16 +1,17 @@
 export default function useComponents(components) {
   components.forEach(component => {
-    const template = component.template
-    class Component extends HTMLElement {
-      constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
-      }
-      connectedCallback() {
-        this.shadowRoot.innerHTML = template
+    const { name, template, initiator } = component
+
+    const componentElement = document.querySelector(
+      `[data-component="${name}"]`
+    )
+
+    if (componentElement) {
+      componentElement.innerHTML = template
+
+      if (initiator) {
+        initiator()
       }
     }
-    customElements.get(component.name) ||
-      customElements.define(component.name, Component)
   })
 }
